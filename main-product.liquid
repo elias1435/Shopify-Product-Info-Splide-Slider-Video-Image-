@@ -1,0 +1,73 @@
+....
+{%- for block in section.blocks -%}
+  {%- case block.type -%}
+{% comment %} Below add the 'product_splide' block {% endcomment %}
+
+  {%- when 'product_splide' -%}
+    <div class="product__block product__block--splide" {{ block.shopify_attributes }}>
+      {% render 'product-splide-widget', product: product, section: section, block: block %}
+    </div>
+
+
+{% schema %}
+{
+  "type": "product_splide",
+  "name": "Image Slider (Splide)",
+  "limit": 1,
+  "settings": [
+    { "type": "text",  "id": "subtitle",           "label": "Small title (subtitle)", "default": "As seen on" },
+    { "type": "range", "id": "subtitle_font_size", "label": "Subtitle font size (px)", "min": 10, "max": 24, "step": 1, "default": 13 },
+    { "type": "color", "id": "subtitle_color",     "label": "Subtitle color", "default": "#666666" },
+
+    { "type": "text",  "id": "heading",            "label": "Main heading", "default": "Join the #alviofam" },
+    { "type": "range", "id": "heading_font_size",  "label": "Heading font size (px)", "min": 14, "max": 72, "step": 1, "default": 24 },
+    { "type": "color", "id": "heading_color",      "label": "Heading text color", "default": "#111111" },
+    { "type": "select","id": "heading_align",      "label": "Heading alignment", "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center","label": "Center" },
+        { "value": "right","label": "Right" }
+      ]
+    },
+
+    { "type": "number","id": "per_page",         "label": "Slides per view (desktop)", "default": 3 },
+    { "type": "number","id": "per_page_mobile",  "label": "Slides per view (mobile)",  "default": 1 },
+    { "type": "number","id": "gap",              "label": "Gap between slides (px)",   "default": 16 },
+    { "type": "checkbox","id": "autoplay",       "label": "Enable slider autoplay",    "default": true },
+    { "type": "number","id": "interval",         "label": "Autoplay speed (ms)",       "default": 4000 },
+
+    { "type": "header", "content": "Video options" },
+    { "type": "checkbox","id": "video_autoplay", "label": "Autoplay video", "default": false },
+    { "type": "checkbox","id": "video_loop",     "label": "Loop video",     "default": true },
+    { "type": "checkbox","id": "video_muted",    "label": "Mute video",     "default": true },
+    { "type": "checkbox","id": "video_controls", "label": "Show controls (Shopify video)", "default": false },
+
+    { "type": "header", "content": "Slides (1–6): video or image" },
+
+    { "type": "video",       "id": "video_file_1", "label": "Slide 1 — Upload video" },
+    { "type": "video_url",   "id": "video_url_1",  "label": "Slide 1 — YouTube/Vimeo URL", "accept": ["youtube","vimeo"] },
+    { "type": "image_picker","id": "image_1",      "label": "Slide 1 — Fallback image" },
+
+    { "type": "video",       "id": "video_file_2", "label": "Slide 2 — Upload video" },
+    { "type": "video_url",   "id": "video_url_2",  "label": "Slide 2 — YouTube/Vimeo URL", "accept": ["youtube","vimeo"] },
+    { "type": "image_picker","id": "image_2",      "label": "Slide 2 — Fallback image" },
+
+    { "type": "video",       "id": "video_file_3", "label": "Slide 3 — Upload video" },
+    { "type": "video_url",   "id": "video_url_3",  "label": "Slide 3 — YouTube/Vimeo URL", "accept": ["youtube","vimeo"] },
+    { "type": "image_picker","id": "image_3",      "label": "Slide 3 — Fallback image" },
+
+    { "type": "video",       "id": "video_file_4", "label": "Slide 4 — Upload video" },
+    { "type": "video_url",   "id": "video_url_4",  "label": "Slide 4 — YouTube/Vimeo URL", "accept": ["youtube","vimeo"] },
+    { "type": "image_picker","id": "image_4",      "label": "Slide 4 — Fallback image" },
+
+    { "type": "video",       "id": "video_file_5", "label": "Slide 5 — Upload video" },
+    { "type": "video_url",   "id": "video_url_5",  "label": "Slide 5 — YouTube/Vimeo URL", "accept": ["youtube","vimeo"] },
+    { "type": "image_picker","id": "image_5",      "label": "Slide 5 — Fallback image" },
+
+    { "type": "video",       "id": "video_file_6", "label": "Slide 6 — Upload video" },
+    { "type": "video_url",   "id": "video_url_6",  "label": "Slide 6 — YouTube/Vimeo URL", "accept": ["youtube","vimeo"] },
+    { "type": "image_picker","id": "image_6",      "label": "Slide 6 — Fallback image" }
+  ]
+}
+
+{% endschema %}
